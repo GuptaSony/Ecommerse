@@ -1,0 +1,29 @@
+<div class="modal-header">
+	<!-- <h3>Add Buyer <span class="fa fa-times float-right" (click)="activeModal.dismiss('Cross click')">x</span>
+		<div class="clearfix"></div>
+	</h3> -->
+	<h3 class="modal-title" id="modal-basic-title">Order Details</h3>
+	<button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+		<span aria-hidden="true">&times;</span>
+	</button>
+</div>
+<div class="modal-body">
+	<div>
+		<div class="form-group"><b>category:</b> {{orderData?.category}}</div> 
+		<div class="form-group"><b>category_id:</b> {{orderData?.category_id}}</div>
+		<div class="form-group"><b>code:</b> {{orderData?.code}}</div>
+		<div class="form-group"><b>name:</b>{{orderData?.name}}</div>
+		<div class="form-group"><b>packing:</b> {{orderData?.packing}}</div>
+		<div class="form-group"><b>product_id:</b> {{orderData?.product_id}}</div>
+		<div class="form-group"><b>price:</b> {{orderData?.price}}</div>
+		<div class="form-group"><b>Quantity:</b> {{orderData?.qty}}</div>
+		<div class="form-group"><b>tax_rate:</b> {{orderData?.tax_rate}}</div>
+		<div class="form-group"><b>Total:</b> {{(orderData?.price * orderData?.qty) + orderData?.tax_rate}}</div>
+	</div>
+	<div>
+		<button type="button" class="btn btn-primary" (click)="saveOrder()">Save Order</button>
+	</div>
+</div>
+<div class="modal-footer">
+
+</div>

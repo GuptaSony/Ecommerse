@@ -1,0 +1,32 @@
+<div>
+	<div class="float-right">
+		<button type="button" class="btn btn-primary mr-4" (click)="addbuyerbtn()">Add Buyer</button>
+	</div>
+	<div class="clearfix">
+		
+	</div>
+	<table class="table table-strip">
+		<tr >
+			<th>category</th>
+			<th>code</th>
+			<th>name</th>
+			<th>packing</th>
+			<th>price</th>
+			<th>tax_rate</th>
+			<th>Qty</th>
+			<th>Action</th>
+		</tr>
+		<tr *ngFor="let details of productDetails">
+			<td>{{details.category}}</td>
+			<td>{{details.code}}</td>
+			<td>{{details.name}}</td>
+			<td>{{details.packing}}</td>
+			<td>{{details.price}}</td>
+			<td>{{details.tax_rate}}</td>
+			<td><input type="number" name="qty" [(ngModel)]="details.qty"/></td>
+			<!-- <td><input type="button" class="btn btn-primary" value="Add Buyer" (click)="addbuyerbtn()"/></td> -->
+			<td><input type="button" class="btn btn-primary" value="Order Now" [disabled]="!details.qty" (click)="orderNow(details)"/></td>
+		</tr>
+	</table>
+	
+</div>

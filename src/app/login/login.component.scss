@@ -1,7 +1,7 @@
 .backcolor {
 	margin: 0;
 	padding: 0;
-	background-color: #17a2b8;
+	// background-color: #17a2b8;
 	height: 100vh;
   }
 
@@ -18,4 +18,21 @@
   #login .container #login-row #login-column #login-box #login-form #register-link {
 	margin-top: -85px;
   }
+  input.ng-touched.ng-invalid {
+	border: 1px solid red !important;
+}
+input.ng-touched.ng-valid {
+	border: 1px solid green !important;
+}
+  button:disabled {
+	  cursor: not-allowed!important;
+	  pointer-events: all;
+  }
+//   .pointer-events-none {
+//     pointer-events: none;
+// }
+
+// .wrapper {
+//     cursor: not-allowed;
+// }
 

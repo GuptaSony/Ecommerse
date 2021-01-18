@@ -1,0 +1,36 @@
+<button class="btn btn-primary float-right mr-5" (click)="addProduct(0)">Add Product</button>
+
+<table class="table table-hover">
+		<thead>
+		  <tr class="bg-primary">
+			<th>S.No</th>
+			<th>Code</th>
+			<th>Name</th>
+			<th>Packing</th>
+			<th>Category</th>
+			<th>Tax Rate</th>
+			<th>Price</th>
+			<th>Action</th>
+		  </tr>
+		</thead>
+		<tbody>
+		  <tr *ngFor="let product of productList">
+			<td>{{product.product_id}}</td>
+			<td>{{product.code}}</td>
+			<td>{{product.name}}</td>
+			<td>{{product.packing}}</td>
+			<td>{{product.category}}</td>
+			<td>{{product.tax_rate}}</td>
+			<td>{{product.price}}</td>
+			<td>
+				<a class="btn btn-info ml-2" [routerLink]="['/product/product-Details',product.product_id]">View</a>
+				<button class="btn btn-success ml-2" (click)="addProduct(product)">Edit</button>
+				<button class="btn btn-danger ml-2" (click)="deleteProduct(product.product_id)">Delete</button>
+
+
+			</td>
+			
+		  </tr>
+		</tbody>
+	  </table>
+

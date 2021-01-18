@@ -1,0 +1,75 @@
+<div class="modal-header">
+	<h4 class="modal-title" id="modal-basic-title">Add Product</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+	<form #prodForm="ngForm" (ngSubmit)="saveAddEditProduct()">
+		<div class="form-group">
+			<label for="code">Code</label>
+			<input type="text" class="form-control" name="code" id="code" [(ngModel)]="ProductModel.code"
+				placeholder="Enter Product Code" required minlength="4" maxlength="10" #cd="ngModel">
+				<div *ngIf="cd.touched && !cd.valid">
+					<div class="invalid-input" *ngIf="cd.errors?.required">
+						Code is required
+					</div>
+				</div>
+		</div>
+		<div class="form-group">
+			<label for="code">Name</label>
+			<input type="name" class="form-control" name="name" id="name" [(ngModel)]="ProductModel.name"
+				placeholder="Enter Product Name" required minlength="4" maxlength="35" #nm="ngModel">
+				<div *ngIf="nm.touched && !nm.valid">
+					<div class="invalid-input" *ngIf="nm.errors?.required">
+						Name is required
+					</div>
+				</div>
+		</div>
+		<div class="form-group">
+			<label for="packing">Packing</label>
+			<input type="text" class="form-control" name="packing" id="packing" [(ngModel)]="ProductModel.packing"
+				placeholder="Enter Packing" required minlength="3" maxlength="20" #pk="ngModel">
+				<div *ngIf="pk.touched && !pk.valid">
+					<div class="invalid-input" *ngIf="pk.errors?.required">
+						Packing is required
+					</div>
+				</div>
+		</div>
+		<div class="form-group">
+			<label for="category">Category</label>
+			<select id="category" [(ngModel)]="ProductModel.category_id" name="category" (change)="getSelectedCategory($event)"
+				class="form-control custom-select" required #ct="ngModel">
+				<option [ngValue]="category.category_id" *ngFor="let category of categoryList">{{category.name}}</option>
+			</select>
+
+		</div>
+		<div class="form-group">
+			<label for="tax_rate">Tax Rate</label>
+			<input type="number" class="form-control" name="tax_rate" id="tax_rate" [(ngModel)]="ProductModel.tax_rate"
+				placeholder="Enter Tax rate" required #tr="ngModel">
+				<div *ngIf="tr.touched && !tr.valid">
+					<div class="invalid-input" *ngIf="tr.errors?.required">
+						Tax rate is required
+					</div>
+				</div>
+		</div>
+		<div class="form-group">
+			<label for="price">Price</label>
+			<input type="number" class="form-control" name="price" id="price" [(ngModel)]="ProductModel.price"
+				placeholder="Enter Price" required #pr="ngModel">
+				<div *ngIf="pr.touched && !pr.valid">
+					<div class="invalid-input" *ngIf="pr.errors?.required">
+						Price is required
+					</div>
+				</div>
+		</div>
+
+		<div class="form-group">
+			<button name="prdbtn" class="btn btn-primary" type="submit" [disabled]="!prodForm.valid">Add Product</button>
+		</div>
+	</form>
+</div>
+<div class="modal-footer">
+
+</div>
